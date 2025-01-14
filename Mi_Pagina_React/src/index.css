@@ -1,0 +1,23 @@
+/* El contenedor #root debe tomar todo el alto de la pantalla */
+#root {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+/* Asegúrate de que el body y html tengan un alto de 100% */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+body {
+  background-color:rgb(0, 0, 0) !important;
+  color: #fff !important;
+}
+
+main {
+  padding-top: 70px;
+}
