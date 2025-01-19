@@ -17,14 +17,16 @@ import Footer from './components/Footer'
 export default function App() {
   return (
     <Router>
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/skills" element={<Skills />} />
-        </Routes>
-      </main>
+      <div style={{ position: 'relative' }}>
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/skills" element={<Skills />} />
+          </Routes>
+        </main>
+      </div>
     </Router>
   )
 }

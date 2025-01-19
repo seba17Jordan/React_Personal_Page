@@ -32,6 +32,48 @@ export default function Home() {
     const [arrowIsVisible, setArrowIsVisible] = useState(true);
 
     useEffect(() => {
+      const light = document.querySelector('.light');
+      const grid = document.querySelector('.grid');
+
+      const skewAngle = 25;
+      const rotateAngle = -28;
+
+      grid.addEventListener("mousemove", (e) => {
+        light.style.left = `${e.clientX}px`;
+        light.style.top = `${e.clientY}px`;  
+      });
+    },[]
+    );
+
+    useEffect(() => { //PARA NOMBRE
+      const text = document.getElementById('d3-text');
+      if(text) {
+        let shadow = "";
+        var shadowColor = "rgba(0, 0, 0, 0.5)";
+        for (let i = 0; i < 13; i++) {
+            shadow += (shadow? "," : "") + (-i*1)+"px "+i*1+"px 0 rgb(43, 43, 43)";
+            //shadow += `${-i * 2}px ${i * 2}px ${i}px ${shadowColor}`;
+            //if (i < 30) shadow += ", ";
+        }
+        text.style.textShadow = shadow;
+      }
+    },[]);
+
+    useEffect(() => { //PARA PROFESION
+      const text = document.getElementById('d3-text-2');
+      if(text) {
+        let shadow = "";
+        var shadowColor = "rgba(0, 0, 0, 0.5)";
+        for (let i = 0; i < 5; i++) {
+            shadow += (shadow? "," : "") + (-i*1)+"px "+i*1+"px 0 rgb(43, 43, 43)"; //before: 217 217 217
+            //shadow += `${-i * 2}px ${i * 2}px ${i}px ${shadowColor}`;
+            //if (i < 30) shadow += ", ";
+        }
+        text.style.textShadow = shadow;
+      }
+    },[]);
+
+    useEffect(() => {
         const handleScroll = () => {
             setArrowIsVisible(window.scrollY < 50);
         };
@@ -47,29 +89,53 @@ export default function Home() {
     };
 
     return (
-        <dev>
-             <Element id="name">
-                 <Name />
+        <div>
+             <Element id="home">
+              <Header />
              </Element>
              {arrowIsVisible && (
                 <div className={`scroll-arrow ${!arrowIsVisible ? "hidden" : ""}`} onClick={scrollToSection}>
                      <img src={whiteArrow} alt="white-arrow" className="arrow-image" />
                 </div>)}
-             <Element id="about-me">
-                 <AboutMe />
-             </Element>
-             <Element id="projects">
-                 <Projects />        
-             </Element>
-             <Element id="contact">
-                 <Contact /> 
-             </Element>
-        </dev>
+             <div className="content">
+              <Element id="about-me">
+                <AboutMe />
+              </Element>
+              <Element id="projects">
+                <Projects />        
+              </Element>
+              <Element id="contact">
+                <Contact /> 
+              </Element>
+             </div>
+        </div>
     );
 }
 
-//Name, about me, projects, skills, contacto, education puede ir en una de las secciones anteriores
-function Name() {
+function Header(){ //Componente con nombre y profesion, opción 1
+  return (
+    <div className="header-main">
+      <div className="home-container">
+        <div className="hex-container">
+          <header id="hex-grid">
+            <div className="light"></div>
+            <div className="grid"></div>
+          </header>
+          <div className="d3-text-container">
+            <div id="d3-text" className="d3-text" data-text="SEBASTIAN JORDAN">
+              SEBASTIAN
+              <br /> 
+              JORDAN
+            </div>
+            <p id="d3-text-2"> Frontend Developer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Name() { // Componente que muestra el nombre y la profesión (simple)
     return (
         <div className="name-container">
              <h1>SEBASTIAN JORDAN</h1>
@@ -177,7 +243,7 @@ function Projects() {
           description: "This university project, which received high marks, is a platform designed for construction companies to manage buildings and people effectively. It includes role-based access for administrators, supports CRUD operations, data imports, and handles HTTP requests and endpoints. The app showcases best practices in clean code, design patterns, and RESTful API architecture.",
           image: projectBuilding,
           techIcons: [angularIcon,cSharpIcon,cssIcon,netIcon],
-          repoLink: "https://github.com/username/project1",
+          repoLink: "https://github.com/seba17Jordan/Building-Management-CRUD-app",
           liveLink: "https://project1.com",
         },
         {
@@ -185,8 +251,8 @@ function Projects() {
           description: " I developed a responsive and visually appealing web page for a content creator, specifically designed to attract clients for coaching sessions, acting as a landing page. I handled both the development and design. The project emphasized continuous collaboration, with regular deliveries and constant feedback. Currently, the website is under maintenance, but references can be provided upon request.",
           image: projectFacu,
           techIcons: [wordpressIcon, diviIcon, cssIcon],
-          repoLink: "https://github.com/username/project2",
-          liveLink: "https://project2.com",
+          //repoLink: "https://github.com/username/project2",
+          liveLink: "https://facubardanca.com/",
         },
         {
             name: "Pizzeria Website",
@@ -208,7 +274,7 @@ function Projects() {
       
     return (
       <div>
-        <h2>Projects</h2>
+        <h2 id="projects-title">Projects</h2>
         <div className="projects-container">
             {projects.map((project, index) => (
             <ProjectCard
@@ -230,17 +296,21 @@ function Projects() {
 function ProjectCard({ name, description, image, techIcons, repoLink, liveLink }) {
     return (
       <div className="project-card">
-        <img src={image} alt={`${name} preview`} />
-        <h3>{name}</h3>
-        <p>{description}</p>
-        <div className="tech-icons">
-          {techIcons.map((icon, index) => (
-            <img key={index} src={icon} alt="Tech icon" />
-          ))}
+        <div className="project-content">
+          <img src={image} alt={`${name} preview`} />
+          <h3>{name}</h3>
+          <p>{description}</p>
         </div>
-        <div className="project-links">
-          <a href={repoLink} target="_blank" rel="noopener noreferrer">GitHub Repo</a>
-          {liveLink && <a href={liveLink} target="_blank" rel="noopener noreferrer">Live Site</a>}
+        <div className="project-footer">
+          <div className="project-links">
+            {repoLink && <a href={repoLink} target="_blank" rel="noopener noreferrer"> <span> GitHub Repo </span> </a>}
+            {liveLink && <a href={liveLink} target="_blank" rel="noopener noreferrer"> <span> Live Site </span></a>}
+          </div>  
+          <div className="tech-icons">
+            {techIcons.map((icon, index) => (
+              <img key={index} src={icon} alt="Tech icon" />
+            ))}
+          </div>
         </div>
       </div>
     );
@@ -277,6 +347,27 @@ function Contact() {
                 </button>
             </div>
         </div>
+    );
+}
+
+function ThisPage(){
+    return (
+      <div className="this-page-info">
+        <div className="this-page-card glass-effect">
+          <div className="this-page-card-content">
+            <h1>This page...</h1>
+            <p>
+              This page was entirely developed using React (with Vite as the bundler).
+              The application structure is built using good practices such as reusable components, ensuring scalability and maintainability.
+              Transitions and visual effects are achieved using CSS and JS.
+              The design follows a minimalist approach, with a fully responsive interfaces.
+            </p>
+            <a href="https://es.react.dev/">
+              <img src={reactIcon} alt="React"/>
+            </a>
+          </div>
+        </div>
+      </div>
     );
 }
 
