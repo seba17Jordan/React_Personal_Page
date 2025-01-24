@@ -31,6 +31,7 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 export default function Home() {
     const [arrowIsVisible, setArrowIsVisible] = useState(true);
 
+    /* FOR WALLPAER 1
     useEffect(() => {
       const light = document.querySelector('.light');
       const grid = document.querySelector('.grid');
@@ -44,8 +45,9 @@ export default function Home() {
       });
     },[]
     );
+    */
 
-    useEffect(() => { //PARA NOMBRE
+    useEffect(() => { // NAME
       const text = document.getElementById('d3-text');
       if(text) {
         let shadow = "";
@@ -59,7 +61,7 @@ export default function Home() {
       }
     },[]);
 
-    useEffect(() => { //PARA PROFESION
+    useEffect(() => { // PROFESSION
       const text = document.getElementById('d3-text-2');
       if(text) {
         let shadow = "";
@@ -72,6 +74,29 @@ export default function Home() {
         text.style.textShadow = shadow;
       }
     },[]);
+
+    useEffect(() => {  // FOR WALLPAER 2
+      const light1 = document.querySelector('.light1');
+      const grid1 = document.querySelector('.grid1');
+
+      if(grid1) {
+        console.log("grid1 se encontro xd");
+        const handleMouseMove = (e) => {
+          light1.style.left = `${e.clientX}px`;
+          light1.style.top = `${e.clientY}px`;  
+        };
+     
+        document.addEventListener("mousemove", handleMouseMove); /* En vez de document se deberia usar grid1 */
+     
+        return () => document.removeEventListener("mousemove", handleMouseMove);
+      }
+      else {
+        console.log("grid1 no se encontro xd");
+      }
+   
+      
+   }, []);
+   
 
     useEffect(() => {
         const handleScroll = () => {
@@ -91,7 +116,7 @@ export default function Home() {
     return (
         <div>
              <Element id="home">
-              <Header />
+              <Header1 />
              </Element>
              {arrowIsVisible && (
                 <div className={`scroll-arrow ${!arrowIsVisible ? "hidden" : ""}`} onClick={scrollToSection}>
@@ -128,6 +153,29 @@ function Header(){ //Componente con nombre y profesion, opción 1
               JORDAN
             </div>
             <p id="d3-text-2"> Frontend Developer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Header1(){ //Componente con nombre y profesion, opción 2
+  return (
+    <div className="header-main1">
+      <div className="home-container1">
+        <div className="hex-container1">
+          <header id="hex-grid1">
+            <div className="light1"></div>
+            <div className="grid1"></div>
+          </header>
+          <div className="d3-text-container1">
+            <div id="d3-text1" className="d3-text1" data-text="SEBASTIAN JORDAN 1">
+              SEBASTIAN
+              <br /> 
+              JORDAN
+            </div>
+            <p id="d3-text-21"> Frontend Developer</p>
           </div>
         </div>
       </div>

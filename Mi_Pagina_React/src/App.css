@@ -463,6 +463,9 @@ main {
   height: 20px;
 }
 
+
+/* HOME WALLPAPER */
+
 .d3-text {
   position: relative;
   color:rgb(117, 117, 117); /*before: white*/
@@ -501,13 +504,11 @@ main {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #2b2b2b;
-  /*background: blue;*/
+  background:rgb(0, 0, 0); /*BACKGROUND BORDERS, BEFORE: #2B2B2B*/
 }
 
 .hex-container {
-  background: #2b2b2b;
-  /*background: red;*/
+  background:rgb(0, 0, 0); /*BACKGROUND BORDERS*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -572,6 +573,114 @@ main {
   z-index: 8;
   pointer-events: none;
 }
+
+/* HOME WALLPAPER 2  (SIN INCLINACION) */
+.d3-text1 {
+  position: relative;
+  color:rgb(117, 117, 117); /*before: white*/
+  font-weight: 700;
+  font-size: 8vw;
+  line-height: 8vw;
+  letter-spacing: 2px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.d3-text1::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 40px;
+  left: -35px;
+  color: rgb(0, 0, 0, 1);
+  text-shadow: none;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+.d3-text-container1 {
+  pointer-events: none;
+}
+
+#d3-text-21 {
+  margin-top: 15px;
+  font-size: 3vw;
+  pointer-events: none;
+  color:rgb(117, 117, 117);
+}
+
+.home-container1 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hex-container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+}
+
+#hex-grid1 {
+  height: 100vh;
+  background: #000;
+}
+
+#hex-grid1 .grid1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: -50vh;
+  margin-left: -50vh;
+  background: url(/grid.svg) repeat;
+  width: 200%;
+  height: 200%;
+  z-index: -2;
+  background-size: 800px;
+}
+
+
+#hex-grid1 .light1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 350px;
+  filter: blur(15px);
+  background: linear-gradient(
+    90deg, #3AE176 0%,rgb(125, 255, 111) 100%
+  );
+  z-index: -2;
+}
+
+.hex-grid1 {
+  background: transparent;
+}
+
+.header-main1 {
+  position: relative;
+  z-index: 10;
+  margin-bottom: 15vh;
+}
+
+.header-main1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(43, 43, 43, 0) 60%, rgba(0, 0, 0, 1));
+  z-index: 8;
+  pointer-events: none;
+}
+/* FIN DE LOS ENCABEZADOS */
 
 .content {
   position: relative;
