@@ -84,6 +84,9 @@ main {
 .about-me-tech-stack {
   flex: 2;
   text-align: center;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .about-me-tech-stack h3 {
@@ -105,17 +108,31 @@ main {
 
 .tech-item {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .tech-item img {
   width: 48px;
   height: 48px;
+  max-width: 80px;
+  max-height: 80px;
+  object-fit: contain;
 }
 
 .tech-item p {
   font-size: 0.9rem;
-  color: #555; /* Texto tenue */
+  color: #555;
   margin-top: 8px;
+}
+
+.slick-slide {
+  display: flex !important;
+  justify-content: center;
 }
 
 .navbar {
@@ -743,4 +760,80 @@ main {
   width: 75px;
   height: 75px;
   align-self: center;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1024px) {
+  .d3-text1 {
+    font-size: 10vw;
+    line-height: 10vw;
+  }
+
+  #d3-text-21 {
+    font-size: 4vw;
+  }
+
+  #hex-grid1 .grid1 {
+    background-size: 700px;
+  }
+
+  #hex-grid1 .light1 {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .d3-text1 {
+    font-size: 14vw;
+    line-height: 13vw;
+  }
+  
+  #d3-text-21 {
+    font-size: 5vw;
+  }
+
+  #hex-grid1 .grid1 {
+    background-size: 800px;
+  }
+
+  #hex-grid1 .light1 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .about-me-content {
+    flex-direction: column;
+  }
+
+  .about-me-education,
+  .about-me-tech-stack {
+      width: 100%;
+      text-align: center;
+  }
+
+  .about-me-education h3, 
+  .about-me-tech-stack h3 {
+    text-align: center;
+  }
+
+  .about-me-container h2 {
+    text-align: center;
+  }
+  
+  .about-me-container p {
+    text-align: center;
+  }
+
+  .contact-container {
+    margin-right: 32px;
+  }
+
+  .about-me-education ul {
+    list-style: none;
+    padding-left: 0;
+  }
 }

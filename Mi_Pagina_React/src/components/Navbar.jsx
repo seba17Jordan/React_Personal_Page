@@ -1,5 +1,8 @@
 import React, { useState, useEffect} from 'react';
 import { Link } from "react-scroll";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);

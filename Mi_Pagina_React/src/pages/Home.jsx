@@ -1,6 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {Element} from "react-scroll";
 
+// Carrusel Style
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
 // Images & Icons (folder)
 import whiteArrow from '../images/white-arrow.png';
 import projectFacu from '../images/project-facu.png';
@@ -193,92 +198,110 @@ function Name() { // Componente que muestra el nombre y la profesión (simple)
 }
 
 function AboutMe() {
-    return (
-      <div className="about-me-container">
-        <h2>A little about me</h2>
-        <p>
-          Hey, I'm Sebastian, a frontend developer based in Montevideo, Uruguay. I am passionate about creating beautiful and functional interfaces.
-          I have experience working with different technologies such as React, JavaScript, HTML, CSS, among others.
-        </p>
   
-        <div className="about-me-content">
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-          <div className="about-me-education">
-            <h3>Education</h3>
-            <ul>
-              <li>
-                Software Engineer 
-                <span className="education-details"> ORT University </span>
-                <span className="education-details"> (2020 - Present) </span>
-              </li>
-              <li>
-                Assistant Engineer Certification
-                <span className="education-details"> ORT University </span>
-                <span className="education-details"> (2020 - 2023) </span>
-              </li>
-            </ul>
-          </div>
-  
-          <div className="about-me-tech-stack">
-            <h3>Tech Stack</h3>
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const techItems = [
+    { icon: reactIcon, name: "React" },
+    { icon: angularIcon, name: "Angular" },
+    { icon: jsIcon, name: "JavaScript" },
+    { icon: htmlIcon, name: "HTML" },
+    { icon: cssIcon, name: "CSS" },
+    { icon: cSharpIcon, name: "C#" },
+    { icon: cPlusPlusIcon, name: "C++" },
+    { icon: netIcon, name: ".NET" },
+    { icon: wordpressIcon, name: "Wordpress" },
+    { icon: javaIcon, name: "JAVA" },
+    { icon: sqlIcon, name: "SQL" },
+    { icon: gitIcon, name: "Git" },
+  ];
+
+  const sliderSettings = {
+    dots: false,              // Oculta los puntos de navegación para un efecto más limpio
+    infinite: true,           // Habilita el desplazamiento infinito
+    speed: 1500,              // Velocidad de transición (ajústala según prefieras)
+    slidesToShow: 3,          // Número de slides visibles en pantalla grande
+    slidesToScroll: 1,        // Número de slides que se desplazan por vez
+    autoplay: true,           // Habilita el autoplay
+    autoplaySpeed: 0,         // Sin pausas entre transiciones
+    cssEase: "linear", 
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+  return (
+    <div className="about-me-container">
+      <h2>A little about me</h2>
+      <p>
+        Hey, I'm Sebastian, a frontend developer based in Montevideo, Uruguay. I am passionate about creating beautiful and functional interfaces.
+        I have experience working with different technologies such as React, JavaScript, HTML, CSS, among others.
+      </p>
+
+      <div className="about-me-content">
+
+        <div className="about-me-education">
+          <h3>Education</h3>
+          <ul>
+            <li>
+              Software Engineer 
+              <span className="education-details"> ORT University </span>
+              <span className="education-details"> (2020 - Present) </span>
+            </li>
+            <li>
+              Assistant Engineer Certification
+              <span className="education-details"> ORT University </span>
+              <span className="education-details"> (2020 - 2023) </span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="about-me-tech-stack">
+          <h3>Tech Stack</h3>
+          
+          {isMobile ? (
+            <Slider {...sliderSettings}>
+              {techItems.map((item, index) => (
+                <div key={index} className="tech-item">
+                  <img src={item.icon} alt={item.name} />
+                  <p>{item.name}</p>
+                </div>
+              ))}
+            </Slider>) 
+            :
+            (
             <div className="tech-stack-grid">
-              <div className="tech-item">
-                <img src={reactIcon} alt="React" />
-                <p>React</p>
-              </div>
-              <div className="tech-item">
-                <img src={angularIcon} alt="Angular" />
-                <p>Angular</p>
-              </div>
-              <div className="tech-item">
-                <img src={jsIcon} alt="JavaScript" />
-                <p>JavaScript</p>
-              </div>
-              <div className="tech-item">
-                <img src={htmlIcon} alt="html" />
-                <p>HTML</p>
-              </div>
-              <div className="tech-item">
-                <img src={cssIcon} alt="css" />
-                <p>CSS</p>
-              </div>
-              <div className="tech-item">
-                <img src={cSharpIcon} alt="c#" />
-                <p>C#</p>
-              </div>
-              <div className="tech-item">
-                <img src={cPlusPlusIcon} alt="C++" />
-                <p>C++</p>
-              </div>
-              <div className="tech-item">
-                <img src={netIcon} alt=".net" />
-                <p>.NET</p>
-              </div>
-              <div className="tech-item">
-                <img src={wordpressIcon} alt="wordpress" />
-                <p>Wordpress</p>
-              </div>
-              <div className="tech-item">
-                <img src={javaIcon} alt="JAVA" />
-                <p>JAVA</p>
-              </div>
-              <div className="tech-item">
-                <img src={sqlIcon} alt="SQL" />
-                <p>SQL</p>
-              </div>
-              <div className="tech-item">
-                <img src={gitIcon} alt="git" />
-                <p>Git</p>
-              </div>
-              <div className="tech-item">
-                <FontAwesomeIcon icon={faGithub} size="3x" color="dd0031" />
-                <p>GitHub</p>
-              </div>
+              {techItems.map((item, index) => (
+                <div key={index} className="tech-item">
+                  <img src={item.icon} alt={item.name} />
+                  <p>{item.name}</p>
+                </div>
+              ))}
             </div>
-          </div>
+            )
+          }
         </div>
       </div>
-    );
+    </div>
+  );
 }
   
 
@@ -292,14 +315,12 @@ function Projects() {
           image: projectBuilding,
           techIcons: [angularIcon,cSharpIcon,cssIcon,netIcon],
           repoLink: "https://github.com/seba17Jordan/Building-Management-CRUD-app",
-          liveLink: "https://project1.com",
         },
         {
           name: "Facundo Website",
           description: " I developed a responsive and visually appealing web page for a content creator, specifically designed to attract clients for coaching sessions, acting as a landing page. I handled both the development and design. The project emphasized continuous collaboration, with regular deliveries and constant feedback. Currently, the website is under maintenance, but references can be provided upon request.",
           image: projectFacu,
           techIcons: [wordpressIcon, diviIcon, cssIcon],
-          //repoLink: "https://github.com/username/project2",
           liveLink: "https://facubardanca.com/",
         },
         {
