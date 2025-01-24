@@ -671,7 +671,8 @@ main {
   height: 350px;
   filter: blur(15px);
   background: linear-gradient(
-    90deg, #3AE176 0%,rgb(125, 255, 111) 100%
+    90deg,rgb(50, 167, 93) 0%,rgb(77, 164, 67) 100%
+    /*90deg, #3AE176 0%,rgb(125, 255, 111) 100%*/
   );
   z-index: -2;
 }

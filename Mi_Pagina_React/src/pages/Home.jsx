@@ -223,13 +223,13 @@ function AboutMe() {
   ];
 
   const sliderSettings = {
-    dots: false,              // Oculta los puntos de navegación para un efecto más limpio
-    infinite: true,           // Habilita el desplazamiento infinito
-    speed: 1500,              // Velocidad de transición (ajústala según prefieras)
-    slidesToShow: 3,          // Número de slides visibles en pantalla grande
-    slidesToScroll: 1,        // Número de slides que se desplazan por vez
-    autoplay: true,           // Habilita el autoplay
-    autoplaySpeed: 0,         // Sin pausas entre transiciones
+    dots: false,
+    infinite: true,
+    speed: 1500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 0,
     cssEase: "linear", 
     responsive: [
       {
