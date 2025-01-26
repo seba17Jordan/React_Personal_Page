@@ -812,7 +812,6 @@ main {
   #hex-grid1 .light1 {
     width: 400px;
     height: 1000px;
-   // animation: moveLight 3s linear infinite;
   }
 
   @keyframes moveLight {
