@@ -84,8 +84,7 @@ export default function Home() {
       const light1 = document.querySelector('.light1');
       const grid1 = document.querySelector('.grid1');
 
-      if(grid1) {
-        console.log("grid1 se encontro xd");
+      if(window.innerWidth > 768) {
         const handleMouseMove = (e) => {
           light1.style.left = `${e.clientX}px`;
           light1.style.top = `${e.clientY}px`;  
@@ -226,8 +225,6 @@ function AboutMe() {
     dots: false,
     infinite: true,
     speed: 1500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 0,
     cssEase: "linear", 
@@ -235,14 +232,14 @@ function AboutMe() {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
@@ -328,16 +325,16 @@ function Projects() {
             description: "This project is ideal for pizzerias, showcasing the menu, contact information, and location. The website was designed to be visually appealing and user-friendly, with a focus on attracting customers. The technology stack included HTML, CSS, and JavaScript, with a mobile-first approach to ensure responsiveness.",
             image: projectPizzeria,
             techIcons: [jsIcon, htmlIcon, cssIcon],
-            repoLink: "https://github.com/username/project2",
-            liveLink: "https://project2.com",
+            repoLink: "https://github.com/sebaJordanYT/App-Restaurante-Ejemplo",
+            /*liveLink: "https://project2.com",*/
         },
         {
             name: "Tic-Tac-Toe Game",
             description: "The classic game of Tic-Tac-Toe, developed using React. The game includes features such as tracking player turns, displaying the winner, and resetting the board. The users can also restart the scores at any time. The project showcases my knowledge about React components, state management, and event handling. This game was developed with the help of a tutorial, credits to the author 'midudev'.",
             image: projectGame,
             techIcons: [reactIcon, cssIcon],
-            repoLink: "https://github.com/username/project2",
-            liveLink: "https://project2.com",
+            repoLink: "https://github.com/seba17Jordan/TIC-TAC-TOE",
+            /*liveLink: "https://project2.com",*/
         },
     ];
       
