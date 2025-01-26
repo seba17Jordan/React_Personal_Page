@@ -810,9 +810,11 @@ main {
   }
 
   #hex-grid1 .light1 {
-    width: 200px;
-    height: 500px;
-   animation: moveLight 3s linear infinite;
+    width: 400px;
+    height: 1000px;
+    background: radial-gradient(circle, rgb(0, 255, 94, 0.3) 0%, rgb(0, 255, 94, 0.1) 100%);
+
+    /*animation: moveLight 3s linear infinite;*/
   }
 
   @keyframes moveLight {
