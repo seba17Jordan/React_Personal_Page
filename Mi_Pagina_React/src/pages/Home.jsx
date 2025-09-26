@@ -179,7 +179,7 @@ function Header1(){ //Componente con nombre y profesion, opción 2
               <br /> 
               JORDAN
             </div>
-            <p id="d3-text-21"> Frontend Developer</p>
+            <p id="d3-text-21"> Full Stack Developer</p>
           </div>
         </div>
       </div>
