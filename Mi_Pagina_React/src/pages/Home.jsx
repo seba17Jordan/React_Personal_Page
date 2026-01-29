@@ -12,6 +12,7 @@ import projectFacu from '../images/project-facu.png';
 import projectBuilding from '../images/project-building.png';
 import projectPizzeria from '../images/project-pizzeria.png';
 import projectGame from '../images/project-game.png';
+import projectStartup from '../images/project-startup.png';
 import cssIcon from '../images/CSS-Icon.svg';
 import jsIcon from '../images/JS-Icon.svg';
 import htmlIcon from '../images/HTML5-Icon.svg';
@@ -26,6 +27,7 @@ import sqlIcon from '../images/SQL-Icon.svg';
 import cPlusPlusIcon from '../images/C++-Icon.svg';
 import profilePic from '../images/profile-picture.jpg';
 import gitIcon from '../images/Git-Icon.svg';
+import nextjsIcon from '../images/next-js-Icon.svg';
 
 // Icons (Font Aweseme library)
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -135,9 +137,6 @@ export default function Home() {
               </Element>
               <Element id="contact">
                 <Contact /> 
-              </Element>
-              <Element id="this-page">
-                <ThisPage />
               </Element>
              </div>
         </div>
@@ -345,6 +344,14 @@ function Projects() {
             repoLink: "https://github.com/seba17Jordan/TIC-TAC-TOE",
             /*liveLink: "https://project2.com",*/
         },
+        /*{
+            name: "Startup Project",
+            description: "With an entrepreneurial mindset, I’m always looking for innovative ways to create real impact through technology. SALEFAI is an example of this approach: a platform designed to train sales teams using a modern and dynamic methodology. This project involved not only software development, but also validation strategies, participation in international pitch competitions, and deep customer empathy to build a product aligned with real needs.",
+            image: projectStartup,
+            techIcons: [nextjsIcon, cssIcon],
+            liveLink: "https://salefai-landing-repo.vercel.app",
+        },
+        */
     ];
       
     return (
@@ -445,6 +452,3 @@ function ThisPage(){
       </div>
     );
 }
-
-
-
