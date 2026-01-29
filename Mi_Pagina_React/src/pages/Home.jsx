@@ -179,7 +179,7 @@ function Header1(){ //Componente con nombre y profesion, opción 2
               <br /> 
               JORDAN
             </div>
-            <p id="d3-text-21"> Full Stack Developer test</p>
+            <p id="d3-text-21"> Full Stack Developer </p>
           </div>
         </div>
       </div>
@@ -264,6 +264,11 @@ function AboutMe() {
               <span className="education-details"> (2020 - Present) </span>
             </li>
             <li>
+              Bachelor's Degree in Systems Engineering
+              <span className="education-details"> ORT University </span>
+              <span className="education-details"> (2020 - 2025) </span>
+            </li>
+            <li>
               Assistant Engineer Certification
               <span className="education-details"> ORT University </span>
               <span className="education-details"> (2020 - 2023) </span>
@@ -329,7 +334,7 @@ function Projects() {
             /*liveLink: "https://project2.com",*/
         },
         {
-            name: "Tic-Tac-Toe Game",
+            name: "Tic-Tac-Toe",
             description: "The classic game of Tic-Tac-Toe, developed using React. The game includes features such as tracking player turns, displaying the winner, and resetting the board. The users can also restart the scores at any time. The project showcases my knowledge about React components, state management, and event handling. This game was developed with the help of a tutorial, credits to the author 'midudev'.",
             image: projectGame,
             techIcons: [reactIcon, cssIcon],
