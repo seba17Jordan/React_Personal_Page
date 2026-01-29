@@ -136,6 +136,9 @@ export default function Home() {
               <Element id="contact">
                 <Contact /> 
               </Element>
+              <Element id="this-page">
+                <ThisPage />
+              </Element>
              </div>
         </div>
     );
@@ -249,7 +252,8 @@ function AboutMe() {
     <div className="about-me-container">
       <h2>A little about me</h2>
       <p>
-        Hey, I'm Sebastian, a frontend developer based in Montevideo, Uruguay. I am passionate about creating beautiful and functional interfaces.
+        Hey, I'm Sebastian, a software developer based in Montevideo, Uruguay. I enjoy building well-designed, high-quality web applications, 
+        focusing on both user experience and solid implementation.
         I have experience working with different technologies such as React, JavaScript, HTML, CSS, among others.
       </p>
 
